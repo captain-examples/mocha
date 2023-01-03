@@ -1,0 +1,25 @@
+name: 'Captain CI example'
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - README.md
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - run: npm clean-install
+      - uses: rwx-research/setup-captain@v1
+      - name: Run tests
+        run: |
+          captain run --suite-id captain-examples-mocha --test-results tmp/report.json -- \
+            npm test
+        env:
+          RWX_ACCESS_TOKEN: ${{ secrets.RWX_ACCESS_TOKEN }}

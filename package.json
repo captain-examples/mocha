@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "test": "mocha 'test/**/*.js' --reporter @rwx-research/mocha-multi-reporters --reporter-options configFile=multi-reporters.json"
+  },
+  "dependencies": {
+    "@rwx-research/mocha-multi-reporters": "^1.5.2",
+    "mocha": "^10.1.0"
+  }
+}
