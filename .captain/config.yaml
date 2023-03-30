@@ -1,0 +1,5 @@
+test-suites:
+  captain-examples-mocha:
+    command: npm test
+    results:
+      path: tmp/report.json
