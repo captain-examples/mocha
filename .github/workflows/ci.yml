@@ -18,8 +18,6 @@ jobs:
       - run: npm clean-install
       - uses: rwx-research/setup-captain@v1
       - name: Run tests
-        run: |
-          captain run --suite-id captain-examples-mocha --test-results tmp/report.json -- \
-            npm test
+        run: captain run captain-examples-mocha
         env:
           RWX_ACCESS_TOKEN: ${{ secrets.RWX_ACCESS_TOKEN }}
